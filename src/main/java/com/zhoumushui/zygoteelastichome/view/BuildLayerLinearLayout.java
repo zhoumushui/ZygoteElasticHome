@@ -17,6 +17,7 @@ public class BuildLayerLinearLayout extends LinearLayout {
     public BuildLayerLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return true;

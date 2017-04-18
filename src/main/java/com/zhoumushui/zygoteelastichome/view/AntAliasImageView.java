@@ -26,13 +26,15 @@ public class AntAliasImageView extends ImageView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG
+                | Paint.FILTER_BITMAP_FLAG));
         super.onDraw(canvas);
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
+        canvas.setDrawFilter(new PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG
+                | Paint.FILTER_BITMAP_FLAG));
         super.dispatchDraw(canvas);
     }
 }

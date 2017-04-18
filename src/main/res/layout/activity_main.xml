@@ -14,8 +14,8 @@
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 
-    <com.zhoumushui.zygoteelastichome.view.BooheeScrollView
-        android:id="@+id/horizon"
+    <com.zhoumushui.zygoteelastichome.view.ElasticScrollView
+        android:id="@+id/elasticScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"></com.zhoumushui.zygoteelastichome.view.BuildLayerLinearLayout>
-    </com.zhoumushui.zygoteelastichome.view.BooheeScrollView>
+    </com.zhoumushui.zygoteelastichome.view.ElasticScrollView>
 
 
 </LinearLayout>

@@ -17,7 +17,7 @@ import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringConfig;
 import com.facebook.rebound.SpringSystem;
 
-public class BooheeScrollView extends HorizontalScrollView {
+public class ElasticScrollView extends HorizontalScrollView {
 
     private static final int DEFAULT_DURATION = 300;
     private ObjectAnimator scrollAnimator;
@@ -37,17 +37,17 @@ public class BooheeScrollView extends HorizontalScrollView {
     private int mWidth;
     public static final int NORMAL_ANIM = 0;
     public static final int REBOUND_ANIM = 1;
-    private int ANIM_TYPE = NORMAL_ANIM;
+    private int ANIM_TYPE = REBOUND_ANIM;
 
-    public BooheeScrollView(Context context) {
+    public ElasticScrollView(Context context) {
         this(context, null, 0);
     }
 
-    public BooheeScrollView(Context context, AttributeSet attrs) {
+    public ElasticScrollView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BooheeScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ElasticScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -313,14 +313,14 @@ public class BooheeScrollView extends HorizontalScrollView {
     }
 
     private int dx;
-    Property<BooheeScrollView, Integer> scrollAnim = new Property<BooheeScrollView, Integer>(Integer.class, "mCurrentScrollX") {
+    Property<ElasticScrollView, Integer> scrollAnim = new Property<ElasticScrollView, Integer>(Integer.class, "mCurrentScrollX") {
         @Override
-        public Integer get(BooheeScrollView object) {
+        public Integer get(ElasticScrollView object) {
             return object.mCurrentScrollX;
         }
 
         @Override
-        public void set(BooheeScrollView object, Integer value) {
+        public void set(ElasticScrollView object, Integer value) {
             scrollTo(value, 0);
         }
     };

@@ -3,7 +3,6 @@ package com.zhoumushui.zygoteelastichome;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -12,26 +11,28 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zhoumushui.zygoteelastichome.view.BezelImageView;
-import com.zhoumushui.zygoteelastichome.view.BooheeScrollView;
+import com.zhoumushui.zygoteelastichome.view.ElasticScrollView;
 import com.zhoumushui.zygoteelastichome.view.BuildLayerLinearLayout;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    BooheeScrollView booheeScrollView;
+    ElasticScrollView elasticScrollView;
     BuildLayerLinearLayout buildLayerLinearLayout;
     public TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
 
-        booheeScrollView = (BooheeScrollView) findViewById(R.id.horizon);
+        elasticScrollView = (ElasticScrollView) findViewById(R.id.elasticScrollView);
         buildLayerLinearLayout = (BuildLayerLinearLayout) findViewById(R.id.linear);
         final TextView t;
         t = textView = (TextView) findViewById(R.id.text);
@@ -65,54 +66,61 @@ public class MainActivity extends AppCompatActivity {
         BezelImageView imageView1 = new BezelImageView(this);
         imageView1.setLayoutParams(new LinearLayout.LayoutParams(width, height));
         buildLayerLinearLayout.addView(imageView1);
-        imageView1.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.pic1, width, height));
+        imageView1.setImageBitmap(decodeSampledBitmapFromResource(getResources(),
+                R.drawable.pic1, width, height));
         imageView1.setMaskDrawable(getResources().getDrawable(R.drawable.roundrect));
 
         BezelImageView imageView2 = new BezelImageView(this);
         imageView2.setLayoutParams(new LinearLayout.LayoutParams(width, height));
         buildLayerLinearLayout.addView(imageView2);
-        imageView2.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.pic2, width, height));
+        imageView2.setImageBitmap(decodeSampledBitmapFromResource(getResources(),
+                R.drawable.pic2, width, height));
         imageView2.setMaskDrawable(getResources().getDrawable(R.drawable.roundrect));
 
         BezelImageView imageView3 = new BezelImageView(this);
         imageView3.setLayoutParams(new LinearLayout.LayoutParams(width, height));
         buildLayerLinearLayout.addView(imageView3);
-        imageView3.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.pic3, width, height));
+        imageView3.setImageBitmap(decodeSampledBitmapFromResource(getResources(),
+                R.drawable.pic3, width, height));
         imageView3.setMaskDrawable(getResources().getDrawable(R.drawable.roundrect));
 
         BezelImageView imageView4 = new BezelImageView(this);
         imageView4.setLayoutParams(new LinearLayout.LayoutParams(width, height));
         buildLayerLinearLayout.addView(imageView4);
-        imageView4.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.pic4, width, height));
+        imageView4.setImageBitmap(decodeSampledBitmapFromResource(getResources(),
+                R.drawable.pic4, width, height));
         imageView4.setMaskDrawable(getResources().getDrawable(R.drawable.roundrect));
 
         BezelImageView imageView5 = new BezelImageView(this);
         imageView5.setLayoutParams(new LinearLayout.LayoutParams(width, height));
         buildLayerLinearLayout.addView(imageView5);
-        imageView5.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.pic5, width, height));
+        imageView5.setImageBitmap(decodeSampledBitmapFromResource(getResources(),
+                R.drawable.pic5, width, height));
         imageView5.setMaskDrawable(getResources().getDrawable(R.drawable.roundrect));
 
         BezelImageView imageView6 = new BezelImageView(this);
         imageView6.setLayoutParams(new LinearLayout.LayoutParams(width, height));
         buildLayerLinearLayout.addView(imageView6);
-        imageView6.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.pic6, width, height));
+        imageView6.setImageBitmap(decodeSampledBitmapFromResource(getResources(),
+                R.drawable.pic6, width, height));
         imageView6.setMaskDrawable(getResources().getDrawable(R.drawable.roundrect));
 
         BezelImageView imageView7 = new BezelImageView(this);
         imageView7.setLayoutParams(new LinearLayout.LayoutParams(width, height));
         buildLayerLinearLayout.addView(imageView7);
-        imageView7.setImageBitmap(decodeSampledBitmapFromResource(getResources(), R.drawable.pic7, width, height));
+        imageView7.setImageBitmap(decodeSampledBitmapFromResource(getResources(),
+                R.drawable.pic7, width, height));
         imageView7.setMaskDrawable(getResources().getDrawable(R.drawable.roundrect));
 
         view = new View(this);
         view.setLayoutParams(new LinearLayout.LayoutParams(30, 0));
         buildLayerLinearLayout.addView(view);
 
-        booheeScrollView.setChildViews(new View[]{
+        elasticScrollView.setChildViews(new View[]{
                 cardView1, imageView1, imageView2, imageView3,
                 imageView4, imageView5, imageView6, imageView7});
 
-        booheeScrollView.setScrollChangeListener(new BooheeScrollView.OnScrollChangeListener() {
+        elasticScrollView.setScrollChangeListener(new ElasticScrollView.OnScrollChangeListener() {
             @Override
             public void OnScrollChange(int centerViewIndex) {
                 t.setText("centerView:" + centerViewIndex);
@@ -160,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        // getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -169,11 +177,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.normal:
-                booheeScrollView.setAnimType(BooheeScrollView.NORMAL_ANIM);
+                elasticScrollView.setAnimType(ElasticScrollView.NORMAL_ANIM);
                 break;
 
             case R.id.rebound:
-                booheeScrollView.setAnimType(BooheeScrollView.REBOUND_ANIM);
+                elasticScrollView.setAnimType(ElasticScrollView.REBOUND_ANIM);
                 break;
         }
         return true;
