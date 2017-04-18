@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical|center_horizontal"
+    android:background="@drawable/pic10"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:textColor="@android:color/white"
+        android:textSize="18sp" />
+
+    <com.zhoumushui.zygoteelastichome.view.BooheeScrollView
+        android:id="@+id/horizon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:overScrollMode="never">
+
+        <com.zhoumushui.zygoteelastichome.view.BuildLayerLinearLayout
+            android:id="@+id/linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"></com.zhoumushui.zygoteelastichome.view.BuildLayerLinearLayout>
+    </com.zhoumushui.zygoteelastichome.view.BooheeScrollView>
+
+
+</LinearLayout>
