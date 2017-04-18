@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
         elasticScrollView = (ElasticScrollView) findViewById(R.id.elasticScrollView);
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         CardView cardView1 = new CardView(this);
         cardView1.setLayoutParams(new LinearLayout.LayoutParams(width, height));
-        buildLayerLinearLayout.addView(cardView1);
+        //buildLayerLinearLayout.addView(cardView1);
         TextView textView = new TextView(this);
         textView.setText("hello");
         textView.setGravity(Gravity.CENTER);

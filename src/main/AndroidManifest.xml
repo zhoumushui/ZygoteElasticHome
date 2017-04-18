@@ -3,6 +3,7 @@
     package="com.zhoumushui.zygoteelastichome">
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
