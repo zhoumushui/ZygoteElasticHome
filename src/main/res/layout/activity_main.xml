@@ -1,19 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
     android:layout_gravity="center_vertical|center_horizontal"
+    android:background="@android:color/black"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/text"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center_horizontal|center_vertical"
         android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:visibility="gone" />
 
     <com.zhoumushui.zygoteelastichome.view.ElasticScrollView
         android:id="@+id/elasticScrollView"
@@ -26,7 +26,9 @@
             android:id="@+id/linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"></com.zhoumushui.zygoteelastichome.view.BuildLayerLinearLayout>
+            android:orientation="horizontal">
+
+        </com.zhoumushui.zygoteelastichome.view.BuildLayerLinearLayout>
     </com.zhoumushui.zygoteelastichome.view.ElasticScrollView>
 
 

@@ -95,7 +95,8 @@ public class ElasticScrollView extends HorizontalScrollView {
             public void onSpringUpdate(Spring spring) {
                 if (doReboundAnim) {
                     int x = -(int) (spring.getCurrentValue() * scrollDx) + beginScrollX;
-                    if (x <= 0 || (x + mWidth) >= computeHorizontalScrollRange()) { //这里具体的值在不同情况下不同  当scrollView的宽度是match parent时候用mWidth
+                    if (x <= 0 || (x + mWidth) >= computeHorizontalScrollRange()) {
+                        //这里具体的值在不同情况下不同  当scrollView的宽度是match parent时候用mWidth
                         doReboundAnim = false;
                     }
                     scrollTo(x, 0);
@@ -223,13 +224,15 @@ public class ElasticScrollView extends HorizontalScrollView {
 
         if (initialVelocity > 0) {
             if (centerViewIndex >= 2) {
-                dstScrollX = mChildViews[centerViewIndex - 1].getLeft() + mChildViews[centerViewIndex - 1].getWidth() / 2 - mWidth / 2;
+                dstScrollX = mChildViews[centerViewIndex - 1].getLeft()
+                        + mChildViews[centerViewIndex - 1].getWidth() / 2 - mWidth / 2;
             } else {
                 dstScrollX = centerView.getLeft() + centerView.getWidth() / 2 - mWidth / 2;
             }
         } else {
             if (centerViewIndex <= childCount - 2) {
-                dstScrollX = mChildViews[centerViewIndex + 1].getLeft() + mChildViews[centerViewIndex + 1].getWidth() / 2 - mWidth / 2;
+                dstScrollX = mChildViews[centerViewIndex + 1].getLeft()
+                        + mChildViews[centerViewIndex + 1].getWidth() / 2 - mWidth / 2;
             } else {
                 dstScrollX = centerView.getLeft() + centerView.getWidth() / 2 - mWidth / 2;
             }
@@ -292,6 +295,9 @@ public class ElasticScrollView extends HorizontalScrollView {
         mVelocityTracker.addMovement(ev);
 
         switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                break;
+
             case MotionEvent.ACTION_MOVE:
                 float x = ev.getX();
                 float y = ev.getY();
@@ -299,6 +305,7 @@ public class ElasticScrollView extends HorizontalScrollView {
                 mLastMotionX = x;
                 mLastMotionY = y;
                 break;
+
             case MotionEvent.ACTION_UP:
                 mIsDragging = false;
                 onActionUp();
@@ -313,17 +320,18 @@ public class ElasticScrollView extends HorizontalScrollView {
     }
 
     private int dx;
-    Property<ElasticScrollView, Integer> scrollAnim = new Property<ElasticScrollView, Integer>(Integer.class, "mCurrentScrollX") {
-        @Override
-        public Integer get(ElasticScrollView object) {
-            return object.mCurrentScrollX;
-        }
+    Property<ElasticScrollView, Integer> scrollAnim =
+            new Property<ElasticScrollView, Integer>(Integer.class, "mCurrentScrollX") {
+                @Override
+                public Integer get(ElasticScrollView object) {
+                    return object.mCurrentScrollX;
+                }
 
-        @Override
-        public void set(ElasticScrollView object, Integer value) {
-            scrollTo(value, 0);
-        }
-    };
+                @Override
+                public void set(ElasticScrollView object, Integer value) {
+                    scrollTo(value, 0);
+                }
+            };
 
     private OnScrollChangeListener mScrollChangeListener;
 
